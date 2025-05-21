@@ -13,8 +13,26 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="images/biomeo-logo.webp">
+
 </head>
 <body>
+    <!-- Cookie Banner -->
+    <div class="cookie-banner" id="cookieBanner">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                <p>We use cookies and similar technologies to provide you with the best experience on our website. By continuing to use our site, you consent to our use of cookies in accordance with our Privacy Policy.</p>
+                <p>I agree to the use of cookies and processing of my personal data.</p>
+            </div>
+            <div class="cookie-links">
+                <a href="https://biomeo.pl/biomeo-mobile-app-privacy-notice/" target="_blank">Privacy Policy</a>
+                <a href="https://biomeo.pl/biomeo-mobile-app-terms-of-use/" target="_blank">Terms</a>
+            </div>
+            <div class="cookie-buttons">
+                <button class="cookie-btn btn-reject" id="rejectCookies">Reject</button>
+                <button class="cookie-btn btn-accept" id="acceptCookies">Accept</button>
+            </div>
+        </div>
+    </div>
     <header>
         <div class="container">
             <nav>
@@ -294,7 +312,7 @@
     </footer>
 
     <script>
-        // Simple JavaScript for mobile menu toggle
+        // Simple JavaScript for mobile menu toggle and cookie consent
         document.addEventListener('DOMContentLoaded', function() {
             const hamburger = document.querySelector('.hamburger');
             const navLinks = document.querySelector('.nav-links');
@@ -302,6 +320,26 @@
             hamburger.addEventListener('click', function() {
                 navLinks.classList.toggle('active');
                 hamburger.classList.toggle('active');
+            });
+            
+            // Cookie consent functionality
+            const cookieBanner = document.getElementById('cookieBanner');
+            const acceptCookies = document.getElementById('acceptCookies');
+            const rejectCookies = document.getElementById('rejectCookies');
+            
+            // Check if user has already made a choice
+            if (!localStorage.getItem('cookieConsent')) {
+                cookieBanner.style.display = 'block';
+            }
+            
+            acceptCookies.addEventListener('click', function() {
+                localStorage.setItem('cookieConsent', 'accepted');
+                cookieBanner.style.display = 'none';
+            });
+            
+            rejectCookies.addEventListener('click', function() {
+                localStorage.setItem('cookieConsent', 'rejected');
+                cookieBanner.style.display = 'none';
             });
         });
     </script>
