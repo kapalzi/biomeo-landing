@@ -21,16 +21,17 @@
     <div class="cookie-banner" id="cookieBanner">
         <div class="cookie-content">
             <div class="cookie-text">
-                <p>We use cookies and similar technologies to provide you with the best experience on our website. By continuing to use our site, you consent to our use of cookies in accordance with our Privacy Policy.</p>
-                <p>I agree to the use of cookies and processing of my personal data.</p>
+                <p>I agree to cookies and data processing.</p>
             </div>
-            <div class="cookie-links">
-                <a href="https://biomeo.pl/biomeo-mobile-app-privacy-notice/" target="_blank">Privacy Policy</a>
-                <a href="https://biomeo.pl/biomeo-mobile-app-terms-of-use/" target="_blank">Terms</a>
-            </div>
-            <div class="cookie-buttons">
-                <button class="cookie-btn btn-reject" id="rejectCookies">Reject</button>
-                <button class="cookie-btn btn-accept" id="acceptCookies">Accept</button>
+            <div class="cookie-actions">
+                <div class="cookie-links">
+                    <a href="https://biomeo.pl/biomeo-mobile-app-privacy-notice/" target="_blank">Privacy</a>
+                    <a href="https://biomeo.pl/biomeo-mobile-app-terms-of-use/" target="_blank">Terms</a>
+                </div>
+                <div class="cookie-buttons">
+                    <button class="cookie-btn btn-reject" id="rejectCookies">Reject</button>
+                    <button class="cookie-btn btn-accept" id="acceptCookies">Accept</button>
+                </div>
             </div>
         </div>
     </div>
@@ -77,10 +78,10 @@
                         </div>
                     </div>
                     <div class="hero-cta">
-                        <a href="https://apps.apple.com/us/app/biomeo/id6741065235" class="app-store">
+                        <a href="https://apps.apple.com/us/app/biomeo/id6741065235" class="app-store" id="appStoreLink">
                             <img src="images/app-store.webp" alt="Download on App Store" width="180" height="52">
                         </a>
-                        <a href="https://play.google.com/store/apps/details?id=com.kapala.biomeo" class="app-store">
+                        <a href="https://play.google.com/store/apps/details?id=com.kapala.biomeo" class="app-store" id="playStoreLink">
                             <img src="images/play-store.webp" alt="Download on Google Play" width="180" height="52">
                         </a>
                     </div>
@@ -243,10 +244,10 @@
                     <li>✅ Lasting habits</li>
                 </ul>
                 <p>Join the challenge inside the Biomeo app today!</p>
-                <a href="https://apps.apple.com/us/app/biomeo/id6741065235" class="app-store">
+                <a href="https://apps.apple.com/us/app/biomeo/id6741065235" class="app-store" id="appStoreLink">
                     <img src="images/app-store.webp" alt="Download on App Store" width="180" height="52">
                 </a>
-                <a href="https://play.google.com/store/apps/details?id=com.kapala.biomeo" class="app-store">
+                <a href="https://play.google.com/store/apps/details?id=com.kapala.biomeo" class="app-store" id="playStoreLink">
                     <img src="images/play-store.webp" alt="Download on Google Play" width="180" height="52">
                 </a>
             </div>
@@ -276,6 +277,49 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Function to get URL parameters
+            function getUrlParams() {
+                const params = {};
+                const queryString = window.location.search.substring(1);
+                const pairs = queryString.split('&');
+                
+                for (let i = 0; i < pairs.length; i++) {
+                    if (!pairs[i]) continue;
+                    
+                    const pair = pairs[i].split('=');
+                    params[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1] || '');
+                }
+                
+                return params;
+            }
+            
+            // Function to add all URL parameters to store links
+            function updateStoreLinks() {
+                const params = getUrlParams();
+                const appStoreLink = document.getElementById('appStoreLink');
+                const playStoreLink = document.getElementById('playStoreLink');
+                // Base URLs
+                let appStoreUrl = 'https://apps.apple.com/us/app/biomeo/id6741065235';
+                let playStoreUrl = 'https://play.google.com/store/apps/details?id=com.kapala.biomeo';
+                
+                // Check if there are any parameters to add
+                if (Object.keys(params).length > 0) {
+                    // Add all URL parameters
+                    let paramString = '';
+                    for (const [key, value] of Object.entries(params)) {
+                        paramString += (paramString ? '&' : '?') + key + '=' + value;
+                    }
+                    
+                    // Update links
+                    if (paramString) {
+                        appStoreLink.href = appStoreUrl + paramString;
+                        playStoreLink.href = playStoreUrl + paramString;
+                    }
+                }
+            }
+            
+            // Update store links with UTM parameters
+            updateStoreLinks();
             const hamburger = document.querySelector('.hamburger');
             const navLinks = document.querySelector('.nav-links');
             
