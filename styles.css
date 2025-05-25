@@ -143,6 +143,37 @@ nav {
     color: var(--primary-color);
 }
 
+.header-cta {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    margin-left: 20px;
+}
+
+.header-cta:hover {
+    background-color: var(--primary-dark);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+.mobile-controls {
+    display: none;
+    align-items: center;
+    gap: 10px;
+}
+
+.mobile-cta {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    margin-left: 0;
+}
+
 .hamburger {
     display: none;
     flex-direction: column;
@@ -560,6 +591,73 @@ nav {
     display: inline-block;
 }
 
+/* Download Section Styles */
+.download {
+    background-color: var(--white);
+    text-align: center;
+}
+
+.download h2 {
+    margin-bottom: 30px;
+    font-size: 2.2rem;
+}
+
+.download-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.download-incentives {
+    background-color: rgba(255, 255, 255, 0.08);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    margin-bottom: 30px;
+    text-align: center;
+    box-shadow: var(--shadow);
+}
+
+.user-count {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    color: var(--text-color);
+}
+
+.free-trial {
+    font-size: 1.1rem;
+    color: var(--primary-dark);
+    font-weight: 500;
+}
+
+.download-cta {
+    margin-top: 25px;
+}
+
+.download-now {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+.download-now:after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-light);
+}
+
+.app-store-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
 /* Pricing Section */
 .pricing {
     text-align: center;
@@ -703,8 +801,16 @@ footer {
         display: none;
     }
     
+    .mobile-controls {
+        display: flex;
+    }
+    
     .hamburger {
         display: flex;
+    }
+    
+    .desktop-cta {
+        display: none;
     }
     
     .nav-links {
@@ -772,6 +878,31 @@ footer {
     .hero-cta .app-store img {
         width: 140px;
         height: auto;
+    }
+    
+    .download h2 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+    }
+    
+    .download-wrapper {
+        padding: 0 10px;
+    }
+    
+    .download-incentives {
+        padding: 15px 10px;
+    }
+    
+    .user-count, .free-trial {
+        font-size: 1rem;
+    }
+    
+    .download-now {
+        font-size: 1.1rem;
+    }
+    
+    .app-store-buttons {
+        gap: 10px;
     }
     
     .problem-cards {
