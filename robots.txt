@@ -1,0 +1,13 @@
+# robots.txt for https://biomeo.app/
+User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /blog.html
+Allow: /blog/posts/
+Allow: /images/
+
+# Sitemap location
+Sitemap: https://biomeo.app/sitemap.xml
+
+# Crawl delay to prevent server overload
+Crawl-delay: 10
