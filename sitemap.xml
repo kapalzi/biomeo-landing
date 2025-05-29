@@ -8,9 +8,15 @@
   </url>
   <url>
     <loc>https://biomeo.app/blog.html</loc>
-    <lastmod>2025-05-27</lastmod>
+    <lastmod>2025-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://biomeo.app/blog/posts/top-foods-improve-gut-health.html</loc>
+    <lastmod>2025-05-29</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://biomeo.app/blog/posts/gut-brain-connection.html</loc>
@@ -27,6 +33,12 @@
   <url>
     <loc>https://biomeo.app/blog/posts/mobile-apps-gut-health.html</loc>
     <lastmod>2025-05-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://biomeo.app/blog/posts/top-gut-health-app-features.html</loc>
+    <lastmod>2025-05-28</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
