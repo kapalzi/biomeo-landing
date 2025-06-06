@@ -8,9 +8,15 @@
   </url>
   <url>
     <loc>https://biomeo.app/blog.html</loc>
-    <lastmod>2025-06-05</lastmod>
+    <lastmod>2025-06-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://biomeo.app/blog/posts/biomeo-feel-better-4-weeks.html</loc>
+    <lastmod>2025-06-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://biomeo.app/blog/posts/probiotics-prebiotics-gut-health.html</loc>
