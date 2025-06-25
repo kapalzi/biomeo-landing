@@ -266,20 +266,6 @@ nav {
     transform: scale(1.02);
 }
 
-.hero-badge {
-    display: inline-block;
-    background-color: var(--primary-color);
-    color: white;
-    font-size: 0.9rem;
-    font-weight: 600;
-    padding: 8px 16px;
-    border-radius: 30px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 10px rgba(76, 175, 80, 0.2);
-    transform: translateY(0);
-    animation: float 3s ease-in-out infinite;
-}
-
 @keyframes float {
     0% { transform: translateY(0px); }
     50% { transform: translateY(-8px); }
@@ -350,7 +336,53 @@ nav {
 /* Problems Section */
 .problems-section {
     background-color: var(--background-light);
+    padding: 80px 0;
+}
+
+.problems-flex {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    justify-content: center;
+}
+.problems-flex .problem-cards {
+    flex: 1 1 320px;
+    min-width: 240px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.problems-flex .section-image {
+    flex: 1 1 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.problems-flex .section-image img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+@media (max-width: 900px) {
+    .problems-flex {
+        flex-direction: column;
+        gap: 24px;
+    }
+    .problems-flex .section-image,
+    .problems-flex .problem-cards {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+.section-image {
     text-align: center;
+}
+
+.section-image img {
+    max-width: 100%;
+    height: auto;
 }
 
 .problems-wrapper {
@@ -395,15 +427,23 @@ nav {
 }
 
 .solution-tag {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    position: relative;
     display: inline-block;
     margin-top: 30px;
+
+    /* display: inline-block;
+    
     text-align: center;
     font-weight: 600;
     color: white;
     padding: 12px 24px;
     border-radius: 30px;
     background-color: var(--primary-color);
-    box-shadow: 0 4px 10px rgba(76, 175, 80, 0.2);
+    box-shadow: 0 4px 10px rgba(76, 175, 80, 0.2); */
 }
 
 /* Reviews Section */
@@ -463,6 +503,17 @@ nav {
     margin-top: auto;
     border-top: 1px solid #f0f0f0;
     padding-top: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.reviewer-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--primary-light);
 }
 
 .reviewer-name {
@@ -477,8 +528,59 @@ nav {
 
 /* Features Section */
 .features {
-    background-color: var(--background-light);
+    background-color: var(--white);
+    padding: 80px 0;
+}
+
+.features-image-row {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+.features-image-row img {
+    max-width: 12em;
+    width: 100%;
+    height: auto;
+    background: #fff;
+}
+@media (max-width: 768px) {
+    .features-image-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+    .features-image-row .feature-overview-img {
+        display: none;
+    }
+    .features-image-row .feature-overview-mobile {
+        display: block;
+        max-width: 90vw;
+        width: 100%;
+        height: auto;
+    }
+}
+@media (min-width: 769px) {
+    .features-image-row .feature-overview-mobile {
+        display: none;
+    }
+    .features-image-row .feature-overview-img {
+        display: inline-block;
+    }
+}
+
+.features-image {
     text-align: center;
+    margin-bottom: 40px;
+}
+
+.features-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
 }
 
 .features h2 {
@@ -566,8 +668,19 @@ nav {
 
 /* Challenge Section */
 .challenge {
-    background-color: var(--background-light);
+    background-color: var(--white);
+    padding: 80px 0;
     text-align: center;
+}
+
+.challenge-image {
+    margin: 30px auto;
+    max-width: 800px;
+}
+
+.challenge-image img {
+    max-width: 100%;
+    height: auto;
 }
 
 .challenge h2 {
@@ -629,8 +742,22 @@ nav {
 }
 
 .download-wrapper {
-    max-width: 800px;
-    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.download-image {
+    margin-bottom: 30px;
+}
+
+.download-image img {
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    max-width: 100%;
+    height: auto;
 }
 
 .download-incentives {
@@ -639,7 +766,7 @@ nav {
     padding: 20px;
     margin-bottom: 30px;
     text-align: center;
-    box-shadow: var(--shadow);
+    /* box-shadow: var(--shadow); */
 }
 
 .user-count {
