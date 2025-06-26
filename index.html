@@ -67,9 +67,8 @@
                     <li><a href="blog.html">Blog</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
-                <a href="#download" class="header-cta desktop-cta">Download Now</a>
+                <a href="#download" class="header-cta" id="downloadLink">Download</a>
                 <div class="mobile-controls">
-                    <a href="#download" class="header-cta mobile-cta">Download</a>
                     <div class="hamburger">
                         <span></span>
                         <span></span> 
@@ -442,7 +441,8 @@
                 if (result) {
                     var result_url = result.clickURL;
                     document.getElementById('playStoreLink').setAttribute('href', result_url);
-                    document.getElementById('appStoreLink').setAttribute('href', result_url);  
+                    document.getElementById('appStoreLink').setAttribute('href', result_url);
+                    document.getElementById('downloadLink').setAttribute('href', result_url);    
                 }
             }
             
