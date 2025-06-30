@@ -341,39 +341,39 @@ nav {
 
 .problems-flex {
     display: flex;
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
     gap: 40px;
     justify-content: center;
 }
+
 .problems-flex .problem-cards {
-    flex: 1 1 320px;
-    min-width: 240px;
+    width: 100%;
+    max-width: 700px;
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
+
 .problems-flex .section-image {
-    flex: 1 1 280px;
+    width: 100%;
+    max-width: 500px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 .problems-flex .section-image img {
     max-width: 100%;
     height: auto;
     display: block;
 }
-@media (max-width: 900px) {
-    .problems-flex {
-        flex-direction: column;
-        gap: 24px;
-    }
-    .problems-flex .section-image,
-    .problems-flex .problem-cards {
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-    }
+
+.problems-flex .section-image,
+.problems-flex .problem-cards {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .section-image {
@@ -434,16 +434,7 @@ nav {
     position: relative;
     display: inline-block;
     margin-top: 30px;
-
-    /* display: inline-block;
-    
     text-align: center;
-    font-weight: 600;
-    color: white;
-    padding: 12px 24px;
-    border-radius: 30px;
-    background-color: var(--primary-color);
-    box-shadow: 0 4px 10px rgba(76, 175, 80, 0.2); */
 }
 
 /* Reviews Section */
