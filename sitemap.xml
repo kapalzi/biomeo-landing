@@ -8,7 +8,7 @@
   </url>
   <url>
     <loc>https://biomeo.app/blog.html</loc>
-    <lastmod>2025-06-27</lastmod>
+    <lastmod>2025-06-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -93,6 +93,12 @@
   <url>
     <loc>https://biomeo.app/blog/posts/how-gut-health-apps-changing-way-we-eat-feel.html</loc>
     <lastmod>2025-06-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://biomeo.app/blog/posts/impact-of-diet-on-gut-microbiome.html</loc>
+    <lastmod>2025-06-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
