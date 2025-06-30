@@ -126,25 +126,49 @@
                 <h2>Common Gut Health Issues - Is This You?</h2>
                 <div class="problems-flex">
                     <div class="problem-cards">
-                        <div class="problem-card">
-                            <div class="problem-icon">😖</div>
-                            <p>Feeling bloated or sluggish after meals</p>
+                        <div class="problem-dropdown">
+                            <div class="problem-header">
+                                <div class="problem-icon">😖</div>
+                                <p>Bloating & Digestive Discomfort</p>
+                                <span class="dropdown-arrow">▼</span>
+                            </div>
+                            <div class="problem-solution">
+                                <p>Biomeo helps you find foods that make your stomach hurt. The app tracks what you eat and how you feel after, then suggests better food choices for your gut.</p>
+                            </div>
                         </div>
-                        <div class="problem-card">
-                            <div class="problem-icon">😣</div>
-                            <p>Struggling with frequent digestive discomfort</p>
+                        <div class="problem-dropdown">
+                            <div class="problem-header">
+                                <div class="problem-icon">😣</div>
+                                <p>Irregular Bowel Movements</p>
+                                <span class="dropdown-arrow">▼</span>
+                            </div>
+                            <div class="problem-solution">
+                                <p>Biomeo tracks what you eat and drink to help make your bathroom trips more regular. It reminds you to drink water and eat foods that keep your gut happy.</p>
+                            </div>
                         </div>
-                        <div class="problem-card">
-                            <div class="problem-icon">😩</div>
-                            <p>Experiencing irregular bowel movements</p>
+                        <div class="problem-dropdown">
+                            <div class="problem-header">
+                                <div class="problem-icon">😩</div>
+                                <p>Food Sensitivities & Intolerances</p>
+                                <span class="dropdown-arrow">▼</span>
+                            </div>
+                            <div class="problem-solution">
+                                <p>Biomeo helps you spot foods your body doesn't like. Just take a photo of your meal, and the app will warn you about foods that might upset your stomach.</p>
+                            </div>
                         </div>
-                        <div class="problem-card">
-                            <div class="problem-icon">😴</div>
-                            <p>Dealing with constant fatigue or skin issues</p>
+                        <div class="problem-dropdown">
+                            <div class="problem-header">
+                                <div class="problem-icon">😴</div>
+                                <p>Low Energy & Gut-Related Issues</p>
+                                <span class="dropdown-arrow">▼</span>
+                            </div>
+                            <div class="problem-solution">
+                                <p>Biomeo shows how your gut affects your energy. It suggests foods that help your body get more nutrients and feel less tired, so you have more energy to do fun things.</p>
+                            </div>
                         </div>
                     </div>
                     <div class="section-image">
-                        <img src="images/gut-health-issues.png" alt="Person experiencing gut health issues" loading="lazy">
+                        <img src="images/happy-user.jpg" alt="Person experiencing gut health issues" loading="lazy">
                     </div>
                 </div>
                 <div class="solution-tag">Biomeo can help you solve these problems!</div>
@@ -471,6 +495,26 @@
                 localStorage.setItem('cookieConsent', 'rejected');
                 cookieBanner.style.display = 'none';
                 removeTrackingScripts();
+            });
+        });
+    </script>
+    <script>
+        // Problem dropdown functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const problemDropdowns = document.querySelectorAll('.problem-dropdown');
+            
+            problemDropdowns.forEach(dropdown => {
+                dropdown.addEventListener('click', function() {
+                    // Toggle active class on the clicked dropdown
+                    this.classList.toggle('active');
+                    
+                    // Close other dropdowns when opening a new one
+                    problemDropdowns.forEach(otherDropdown => {
+                        if (otherDropdown !== dropdown && otherDropdown.classList.contains('active')) {
+                            otherDropdown.classList.remove('active');
+                        }
+                    });
+                });
             });
         });
     </script>
