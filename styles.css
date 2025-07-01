@@ -232,7 +232,6 @@ nav {
 
 .hero-wrapper {
     display: grid;
-    grid-template-columns: 1fr 1fr;
     gap: 40px;
     max-width: 1100px;
     margin: 0 auto;
@@ -273,11 +272,17 @@ nav {
 }
 
 .hero-content h1, .hero-content h2 {
-    font-size: 3rem;
+    font-size: 5rem;
+    text-align: center;
     line-height: 1.2;
     margin-bottom: 20px;
     color: var(--text-color);
-    font-weight: 700;
+    font-weight: 400;
+}
+
+h2 {
+    font-weight: 500;
+    font-size: 1.8rem;
 }
 
 .hero-content .highlight {
@@ -297,16 +302,66 @@ nav {
 }
 
 .hero-content p {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     color: var(--text-light);
     margin-bottom: 30px;
     line-height: 1.7;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.hero-stats {
+.mobile-description {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .desktop-description {
+        display: none;
+    }
+    
+    .mobile-description {
+        display: block;
+    }
+}
+
+.user-rating-banner {
     display: flex;
-    gap: 30px;
-    margin-bottom: 30px;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 30px;
+    padding: 8px 16px;
+    margin: 0 auto 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: fit-content;
+}
+
+.user-avatars {
+    display: flex;
+    margin-right: 10px;
+}
+
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid white;
+    margin-right: -10px;
+    object-fit: cover;
+}
+
+.rating-text {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.star-icon {
+    color: #FFD700;
+    font-size: 1rem;
+    vertical-align: middle;
+    margin: 0 2px;
 }
 
 .stat {
@@ -315,7 +370,7 @@ nav {
 }
 
 .stat-number {
-    font-size: 2rem;
+    font-size: 1.4rem;
     font-weight: 700;
     color: var(--primary-color);
 }
@@ -327,10 +382,49 @@ nav {
 
 .hero-cta {
     display: flex;
+    flex-direction: column;
     align-items: center;
     gap: 20px;
-    flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: center;
+}
+
+.store-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.hero-cta .app-store {
+    width: 100px;
+}
+
+.hero-cta .app-store img {
+    width: 100px;
+    height: auto;
+}
+
+.download-button {
+    font-size: 1.2rem;
+    padding: 10px 10px;
+    border-radius: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 10px rgba(76, 175, 80, 0.3);
+    transition: all 0.3s ease;
+    width: 260px;
+}
+
+.free-trial-info {
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    margin-top: 0px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.download-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(76, 175, 80, 0.4);
 }
 
 /* Problems Section */
@@ -393,7 +487,7 @@ nav {
 .problems-section h2 {
     margin-bottom: 30px;
     color: var(--text-color);
-    font-size: 2.2rem;
+    
 }
 
 .problem-cards {
@@ -441,12 +535,12 @@ nav {
 .reviews {
     background-color: var(--white);
     text-align: center;
-    padding: 80px 0;
+    padding: 0px 0;
 }
 
 .reviews h2 {
     margin-bottom: 50px;
-    font-size: 2.2rem;
+    
 }
 
 .review-slider {
@@ -520,7 +614,7 @@ nav {
 /* Features Section */
 .features {
     background-color: var(--white);
-    padding: 80px 0;
+    padding: 20px 0;
 }
 
 .features-image-row {
@@ -575,8 +669,8 @@ nav {
 }
 
 .features h2 {
+    text-align: center;
     margin-bottom: 50px;
-    font-size: 2.2rem;
 }
 
 .feature-cards {
@@ -618,7 +712,7 @@ nav {
 
 .how-it-works h2 {
     margin-bottom: 50px;
-    font-size: 2.2rem;
+    
 }
 
 .steps {
@@ -660,7 +754,7 @@ nav {
 /* Challenge Section */
 .challenge {
     background-color: var(--white);
-    padding: 80px 0;
+    padding: 20px 0;
     text-align: center;
 }
 
@@ -676,7 +770,7 @@ nav {
 
 .challenge h2 {
     margin-bottom: 20px;
-    font-size: 2.2rem;
+    
 }
 
 .challenge-intro {
@@ -723,13 +817,13 @@ nav {
 
 /* Download Section Styles */
 .download {
-    background-color: var(--white);
+    background-color: var(--background-light);
     text-align: center;
 }
 
 .download h2 {
     margin-bottom: 30px;
-    font-size: 2.2rem;
+    
 }
 
 .download-wrapper {
@@ -752,12 +846,9 @@ nav {
 }
 
 .download-incentives {
-    background-color: rgba(255, 255, 255, 0.08);
     border-radius: var(--border-radius);
     padding: 20px;
-    margin-bottom: 30px;
     text-align: center;
-    /* box-shadow: var(--shadow); */
 }
 
 .user-count {
@@ -809,7 +900,7 @@ nav {
 
 .pricing h2 {
     margin-bottom: 50px;
-    font-size: 2.2rem;
+    
 }
 
 .pricing-cards {
@@ -902,14 +993,23 @@ nav {
 
 .ai-photo-section h2 {
     margin-bottom: 40px;
-    font-size: 2.2rem;
+    
 }
 
-.video-container {
+.video-container.featured-video {
     max-width: 400px;
-    margin: 0 auto 30px;
-    border-radius: 20px;
+    height: 70vh;
+    margin: 0 auto;
+    border-radius: 10px;
     overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(var(--primary-rgb), 0.2);
+}
+
+.featured-testimonial {
+    max-width: 700px;
+    margin: 0 auto 40px;
+    text-align: center;
 }
 
 .video-container video {
@@ -922,7 +1022,8 @@ nav {
     font-size: 1.1rem;
     color: var(--text-color);
     max-width: 600px;
-    margin: 0 auto;
+    margin: auto;
+    margin-top: 10px;
 }
 
 @media (max-width: 768px) {
@@ -1067,7 +1168,11 @@ footer {
     }
     
     .hero-content h1, .hero-content h2 {
-        font-size: 2.2rem;
+        font-size: 5rem;
+    }
+    
+    .hero-content .highlight {
+        display: block;
     }
     
     .hero-stats {
@@ -1080,9 +1185,9 @@ footer {
     }
     
     .hero-cta {
-        flex-direction: row;
+        flex-direction: column;
         justify-content: center;
-        gap: 10px;
+        gap: 15px;
     }
     
     .hero-cta .app-store img {
@@ -1150,7 +1255,7 @@ footer {
     }
     
     .hero-content h1, .hero-content h2 {
-        font-size: 1.8rem;
+        font-size: 2.8rem;
     }
 }
 
@@ -1332,3 +1437,4 @@ footer {
 
 .problem-dropdown.active .dropdown-arrow {
     transform: rotate(180deg);
+}
