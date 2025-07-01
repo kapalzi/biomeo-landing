@@ -24,58 +24,11 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://biomeo.app/">
     
-    <!-- Critical CSS for hero heading (improves LCP) -->
-    <style>
-        :root {
-            --primary-color: #4CAF50;
-            --text-color: #333;
-        }
-        
-        /* System font fallback to prevent layout shift */
-        @font-face {
-            font-family: 'Poppins';
-            font-style: normal;
-            font-weight: 700;
-            font-display: swap;
-            src: local('Arial Bold'), local('Arial-Bold'), local('ArialBold');
-            size-adjust: 105%;
-            ascent-override: 95%;
-            descent-override: 25%;
-            line-gap-override: 0%;
-        }
-        
-        /* Critical hero heading styles */
-        .hero-content h1 {
-            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
-            font-size: 4rem;
-            text-align: center;
-            line-height: 1.2;
-            margin-bottom: 20px;
-            color: var(--text-color);
-            font-weight: 700;
-        }
-        
-        .hero-content .highlight {
-            color: var(--primary-color);
-        }
-        
-        @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 2.8rem;
-            }
-        }
-    </style>
-    
-    <!-- Non-blocking stylesheet loading -->
-    <link rel="preload" href="styles.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="styles.min.css"></noscript>
-    
-    <!-- Optimized Google Fonts loading -->
+    <link rel="stylesheet" href="styles.min.css">
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"></noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="images/biomeo-logo.svg">
     <link rel="apple-touch-icon" href="images/biomeo-logo.svg">
