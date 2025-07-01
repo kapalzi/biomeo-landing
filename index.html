@@ -25,10 +25,35 @@
     <link rel="canonical" href="https://biomeo.app/">
     
     <link rel="stylesheet" href="styles.min.css">
-    <!-- Google Fonts -->
+    <!-- Optimized Google Fonts loading (non-blocking) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    </noscript>
+    
+    <!-- Font display fallback -->
+    <style>
+        /* System font fallback to prevent layout shift */
+        @font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: local('Arial Bold'), local('Arial-Bold'), local('ArialBold');
+            size-adjust: 105%;
+            ascent-override: 95%;
+            descent-override: 25%;
+            line-gap-override: 0%;
+        }
+        
+        /* Base font styles */
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+        }
+    </style>
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="images/biomeo-logo.svg">
     <link rel="apple-touch-icon" href="images/biomeo-logo.svg">
