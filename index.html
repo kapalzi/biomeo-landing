@@ -23,8 +23,11 @@
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://biomeo.app/">
-    <link rel="stylesheet" href="fonts.css">
-    <link rel="stylesheet" href="styles.min.css">
+    <link rel="stylesheet" href="/styles.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/fonts.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="/styles.min.css"></noscript>
+    <noscript><link rel="stylesheet" href="/fonts.css"></noscript>
+
     <!-- Self-hosted fonts -->
     <link rel="preload" href="/fonts/Poppins-Bold.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/fonts/Poppins-Regular.woff2" as="font" type="font/woff2" crossorigin>
