@@ -68,6 +68,120 @@ section {
     padding: 80px 0;
 }
 
+/* Science Section Styles */
+.science-section {
+    background-color: var(--white);
+    padding: 40px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.science-headline {
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: var(--text-color);
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+.icon-science {
+    font-size: 1.8rem;
+    vertical-align: middle;
+}
+.authority-lead {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    margin-bottom: 30px;
+    line-height: 1.7;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.science-highlight {
+    color: var(--primary-color);
+    font-weight: 600;
+    position: relative;
+}
+.science-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+}
+.badge-icon {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+}
+.science-bib-title {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: var(--text-color);
+    font-weight: 500;
+}
+.bibliography-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+.bib-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    padding: 20px;
+    transition: transform 0.3s ease;
+    border: 1px solid #e0e0e0;
+    min-height: 120px;
+}
+.bib-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(76, 175, 80, 0.2);
+}
+.bib-icon {
+    font-size: 1.8rem;
+    flex-shrink: 0;
+    color: var(--primary-color);
+    margin-top: 2px;
+}
+.bib-title {
+    font-size: 1rem;
+    color: var(--text-color);
+    font-weight: 500;
+}
+.bib-meta {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+@media (max-width: 768px) {
+    .authority-headline {
+        font-size: 1.5rem;
+    }
+    .authority-section {
+        padding: 60px 0;
+    }
+    .bibliography-cards {
+        grid-template-columns: 1fr;
+    }
+    .bib-card {
+        padding: 15px;
+    }
+}
+
+
 .button {
     display: inline-block;
     padding: 12px 24px;
@@ -431,8 +545,8 @@ h2 {
 
 /* Problems Section */
 .problems-section {
-    background-color: var(--background-light);
-    padding: 80px 0;
+    background-color: var(--white);
+    padding: 20px 0;
 }
 
 .problems-flex {
