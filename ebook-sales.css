@@ -1,0 +1,277 @@
+/* Ebook Sales Page Styles (dedicated file) */
+.hero {
+    padding-bottom: 20px !important;
+}
+.ebook-hero-grid {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  gap: 48px;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 0 40px;
+}
+.ebook-hero-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.ebook-cover-img {
+  width: 100%;
+  max-width: 340px;
+  /* border-radius: 18px; */
+  /* box-shadow: 0 8px 32px rgba(0,0,0,0.10); */
+}
+.ebook-hero-offer {
+  background: #f7f9f8;
+  border-radius: 18px;
+  padding: 40px 32px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.ebook-hero-title {
+  font-size: 2.1rem;
+  font-weight: 800;
+  margin-bottom: 18px;
+  color: #3B7C6A;
+  line-height: 1.15;
+}
+.ebook-hero-desc {
+  font-size: 1.08rem;
+  color: #444;
+  margin-bottom: 18px;
+}
+.ebook-hero-price-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin: 18px 0 10px 0;
+  font-size: 1.4rem;
+  color: #222;
+}
+.old-price {
+  color: #bdbdbd;
+  text-decoration: line-through;
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+.new-price {
+  color: #222;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-left: 2px;
+}
+.ebook-hero-buy-btn {
+  background: #2ecc40;
+  color: #fff;
+  font-size: 1.15rem;
+  padding: 0.7em 2.6em;
+  border-radius: 30px;
+  margin: 14px 0 18px 0;
+  display: block;
+  transition: background 0.2s;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-align: center;
+  border: none;
+  box-shadow: 0 2px 8px rgba(44, 206, 64, 0.10);
+  width: 100%;
+  max-width: 250px;
+}
+.ebook-hero-buy-btn:hover {
+  background: #27ae60;
+}
+.ebook-hero-safe-checkout {
+  width: 100%;
+  text-align: left;
+}
+.safe-checkout-label {
+  display: block;
+  font-size: 1.01rem;
+  color: #888;
+  margin-bottom: 14px;
+  text-align: left;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+.payment-logos {
+  display: flex;
+  gap: 18px;
+  align-items: left;
+  justify-content: left;
+  margin-top: 0;
+}
+.payment-logo {
+  height: 28px;
+  width: auto;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+  padding: 2px 8px;
+}
+@media (max-width: 900px) {
+  .ebook-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 30px 0 10px;
+  }
+  .ebook-hero-offer {
+    padding: 32px 18px;
+  }
+  .ebook-hero-image {
+    max-width: 340px;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 600px) {
+  .ebook-hero-title {
+    font-size: 1.3rem;
+  }
+  .new-price {
+    font-size: 1.3rem;
+  }
+  .old-price {
+    font-size: 1rem;
+  }
+  .ebook-hero-offer {
+    padding: 18px 6px;
+  }
+}
+
+/* Modern dot bullets for ebook description lists */
+.dot-bullet {
+  color: #bdbdbd;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-right: 10px;
+  vertical-align: middle;
+  display: inline-block;
+  width: 1.1em;
+  text-align: center;
+}
+
+/* Ebook Description Section */
+.ebook-description.container {
+  max-width: 1100px;
+  margin: 40px auto 60px auto;
+  padding: 0 20px 0 20px;
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+.ebook-description h2 {
+  font-size: 1.38rem;
+  font-weight: 700;
+  color: #3B7C6A;
+  margin-top: 32px;
+  margin-bottom: 14px;
+  letter-spacing: 0.01em;
+}
+.ebook-description h2:first-child {
+  margin-top: 0;
+}
+.ebook-description ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 18px 0;
+}
+.ebook-description li {
+  font-size: 1.08rem;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: flex-start;
+}
+.ebook-description p {
+  font-size: 1.08rem;
+  color: #444;
+  line-height: 1.65;
+  margin: 0 0 16px 0;
+}
+.btn-primary {
+  display: inline-block;
+  background: #2ecc40;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 0.7em 2.2em;
+  border-radius: 30px;
+  text-decoration: none;
+  margin-top: 16px;
+  box-shadow: 0 2px 8px rgba(44, 206, 64, 0.10);
+  transition: background 0.2s;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+}
+.btn-primary:hover {
+  background: #27ae60;
+}
+
+/* FAQ Section */
+.ebook-faq.container {
+  max-width: 700px;
+  margin: 0 auto 60px auto;
+  padding: 36px 18px 32px 18px;
+  background: #f7f9f8;
+  border-radius: 14px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.03);
+}
+.ebook-faq h2 {
+  font-size: 1.32rem;
+  font-weight: 700;
+  color: #3B7C6A;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+.ebook-faq details {
+  margin-bottom: 14px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+  padding: 0 16px;
+}
+.ebook-faq summary {
+  font-size: 1.08rem;
+  font-weight: 600;
+  color: #222;
+  cursor: pointer;
+  padding: 16px 0 10px 0;
+  outline: none;
+}
+.ebook-faq details[open] summary {
+  color: #2ecc40;
+}
+.ebook-faq p {
+  font-size: 1.05rem;
+  color: #444;
+  line-height: 1.6;
+  margin: 0 0 16px 0;
+  padding-bottom: 12px;
+}
+
+@media (max-width: 600px) {
+  .ebook-description.container,
+  .ebook-faq.container {
+    padding: 18px 4px 18px 4px;
+    border-radius: 10px;
+  }
+  .ebook-description h2,
+  .ebook-faq h2 {
+    font-size: 1.08rem;
+    margin-bottom: 10px;
+  }
+  .ebook-description li {
+    font-size: 0.98rem;
+  }
+  .ebook-description p,
+  .ebook-faq p {
+    font-size: 0.98rem;
+  }
+  .btn-primary {
+    font-size: 1rem;
+    padding: 0.6em 1.5em;
+  }
+}
