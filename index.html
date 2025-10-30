@@ -52,16 +52,16 @@
     <div class="cookie-banner" id="cookieBanner">
         <div class="cookie-content">
             <div class="cookie-text">
-                <p>I agree to cookies and data processing.</p>
+                <p>We use cookies and similar technologies to analyze website traffic and improve your experience.</p>
             </div>
             <div class="cookie-actions">
                 <div class="cookie-links">
-                    <a href="https://biomeo.pl/biomeo-mobile-app-privacy-notice/" target="_blank">Privacy</a>
-                    <a href="https://biomeo.pl/biomeo-mobile-app-terms-of-use/" target="_blank">Terms</a>
+                    <a href="https://biomeo.pl/biomeo-mobile-app-privacy-notice/" target="_blank">Privacy Policy</a>
+                    <a href="https://biomeo.pl/biomeo-mobile-app-terms-of-use/" target="_blank">Terms of Use</a>
                 </div>
                 <div class="cookie-buttons">
-                    <button class="cookie-btn btn-reject" id="rejectCookies">Reject</button>
-                    <button class="cookie-btn btn-accept" id="acceptCookies">Accept</button>
+                    <button class="cookie-btn btn-reject" id="rejectCookies">Reject All</button>
+                    <button class="cookie-btn btn-accept" id="acceptCookies">Accept All</button>
                 </div>
             </div>
         </div>
@@ -508,12 +508,23 @@
             const rejectCookies = document.getElementById('rejectCookies');
             
             function loadTrackingScripts() {
+                // Initialize Microsoft Clarity with consent
                 (function(c,l,a,r,i,t,y){
                     c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
                     t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
                     y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
                 })(window, document, "clarity", "script", "rndx9v25ff");
                 
+                // Send consent signal to Microsoft Clarity
+                if (typeof clarity === 'function') {
+                    clarity('consent');
+                } else {
+                    // Queue the consent call if clarity isn't loaded yet
+                    window.clarity = window.clarity || function(){(window.clarity.q=window.clarity.q||[]).push(arguments)};
+                    clarity('consent');
+                }
+                
+                // Initialize Facebook Pixel
                 !function (f, b, e, v, n, t, s) {
                     if (f.fbq) return; n = f.fbq = function () {
                         n.callMethod ?
@@ -562,29 +573,72 @@
             
             function removeTrackingScripts() {
                 console.log('Tracking disabled by user');
+                
+                // Initialize Clarity but don't send consent signal
+                // This ensures Clarity loads but operates in limited mode for EEA/UK/CH users
+                (function(c,l,a,r,i,t,y){
+                    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+                })(window, document, "clarity", "script", "rndx9v25ff");
+                
+                // Do NOT call clarity('consent') - this ensures limited functionality
+                // for users from EEA, UK, and Switzerland who reject cookies
+            }
+            
+            // Function to detect if user is from EEA, UK, or Switzerland
+            function isFromEEAUKCH() {
+                // EEA countries, UK, and Switzerland ISO codes
+                const eeaUkChCountries = [
+                    'AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE', // EEA
+                    'IS', 'LI', 'NO', // EEA (non-EU)
+                    'GB', 'UK', // United Kingdom
+                    'CH' // Switzerland
+                ];
+                
+                // Try to get timezone-based detection (rough approximation)
+                const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+                const europeanTimezones = [
+                    'Europe/London', 'Europe/Dublin', 'Europe/Paris', 'Europe/Berlin', 'Europe/Rome', 'Europe/Madrid',
+                    'Europe/Amsterdam', 'Europe/Brussels', 'Europe/Vienna', 'Europe/Prague', 'Europe/Warsaw',
+                    'Europe/Stockholm', 'Europe/Oslo', 'Europe/Copenhagen', 'Europe/Helsinki', 'Europe/Athens',
+                    'Europe/Zurich', 'Europe/Budapest', 'Europe/Bucharest', 'Europe/Sofia', 'Europe/Zagreb',
+                    'Europe/Ljubljana', 'Europe/Bratislava', 'Europe/Vilnius', 'Europe/Riga', 'Europe/Tallinn',
+                    'Europe/Luxembourg', 'Europe/Malta', 'Europe/Nicosia', 'Europe/Lisbon', 'Europe/Reykjavik'
+                ];
+                
+                return europeanTimezones.includes(timezone);
             }
             
             const consentStatus = localStorage.getItem('cookieConsent');
+            const isEEAUKCH = isFromEEAUKCH();
             
-            if (consentStatus === 'rejected') {
-                removeTrackingScripts();
-            } else {
+            // Show banner for EEA/UK/CH users or if no consent status is stored
+            if (isEEAUKCH && !consentStatus) {
+                cookieBanner.style.display = 'block';
+            } else if (!isEEAUKCH) {
+                // For non-EEA/UK/CH users, load tracking scripts with consent by default
                 loadTrackingScripts();
-                
-                if (!consentStatus) {
-                    cookieBanner.style.display = 'block';
-                }
+            } else if (consentStatus === 'accepted') {
+                loadTrackingScripts();
+            } else if (consentStatus === 'rejected') {
+                removeTrackingScripts();
             }
             
             acceptCookies.addEventListener('click', function() {
                 localStorage.setItem('cookieConsent', 'accepted');
+                localStorage.setItem('cookieConsentDate', new Date().toISOString());
                 cookieBanner.style.display = 'none';
+                loadTrackingScripts();
+                console.log('User accepted cookies - Microsoft Clarity consent signal sent');
             });
             
             rejectCookies.addEventListener('click', function() {
                 localStorage.setItem('cookieConsent', 'rejected');
+                localStorage.setItem('cookieConsentDate', new Date().toISOString());
                 cookieBanner.style.display = 'none';
                 removeTrackingScripts();
+                console.log('User rejected cookies - Microsoft Clarity running in limited mode');
             });
         });
     </script>
