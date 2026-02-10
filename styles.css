@@ -478,6 +478,31 @@ h2 {
     margin: 0 2px;
 }
 
+@media (max-width: 768px) {
+    .user-rating-banner {
+        max-width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 6px;
+        padding: 8px 12px;
+    }
+
+    .user-avatars {
+        margin-right: 0;
+    }
+
+    .rating-text {
+        font-size: 0.8rem;
+        line-height: 1.2;
+        text-align: center;
+    }
+
+    .star-icon {
+        font-size: 0.9rem;
+        white-space: nowrap;
+    }
+}
+
 .stat {
     display: flex;
     flex-direction: column;
